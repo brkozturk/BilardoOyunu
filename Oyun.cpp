@@ -1,7 +1,9 @@
 /////////////////////////////////////
-//  Hazýrlayanlar   BURAK ÖZTÜRK   //
+//  Hazï¿½rlayanlar   BURAK ï¿½ZTï¿½RK   //
 //                  RAMAZAN KURT   //
 /////////////////////////////////////
+
+//Test ediliyor//
 
 #include <stdio.h>
 #include <graphics.h>
@@ -29,16 +31,16 @@ void GirisEkraniCiz(void)
      setcolor(CYAN);
      
      settextstyle(6,0,7);
-     outtextxy(190,120,"BÝLARDO");
+     outtextxy(190,120,"Bï¿½LARDO");
      
      setlinestyle(0,0,2);
      rectangle(180,120,600,180);
      
-     //----GÝRÝÞ-EKRANINDAKÝ-SEKMELER----//
+     //----Gï¿½Rï¿½ï¿½-EKRANINDAKï¿½-SEKMELER----//
      settextstyle(6,0,3);
-     outtextxy(235,270,">>OYUNA BAÞLA<<");
-     outtextxy(245,310,">>TALÝMATLAR<<");
-     outtextxy(225,350,">>OYUNDAN ÇIK!!!<<");
+     outtextxy(235,270,">>OYUNA BAï¿½LA<<");
+     outtextxy(245,310,">>TALï¿½MATLAR<<");
+     outtextxy(225,350,">>OYUNDAN ï¿½IK!!!<<");
 }
 
 void OyunEkraniCiz(void)
@@ -58,7 +60,7 @@ void OyunEkraniCiz(void)
      rectangle(50,80,750,480);
      floodfill(100,200,GREEN);
      
-     //---------DELÝKLER---------//        
+     //---------DELï¿½KLER---------//        
      setcolor(BLACK);
      setfillstyle(SOLID_FILL,BLACK);
      circle(60,90,20);
@@ -95,7 +97,7 @@ void OyunEkraniCiz(void)
      circle(top[6].mx,top[6].my,15);
      fillellipse(top[6].mx,top[6].my,15,15);
     
-     //---------GÖSTERGELER---------//
+     //---------Gï¿½STERGELER---------//
      setbkcolor(BLACK);
      setcolor(RED);
      setlinestyle(0,0,4);
@@ -105,7 +107,7 @@ void OyunEkraniCiz(void)
      rectangle(515,545,775,565);
     
      settextstyle(6,0,4);
-     outtextxy(120,15,"BÝLARDO");
+     outtextxy(120,15,"Bï¿½LARDO");
      
      settextstyle(6,0,2);
      outtextxy(425,545,"HIZ=>");
@@ -115,7 +117,7 @@ void OyunEkraniCiz(void)
      setbkcolor(RED);
      setcolor(BLACK);
      settextstyle(6,0,3);
-     outtextxy(678,15,"ÇIKIÞ");
+     outtextxy(678,15,"ï¿½IKIï¿½");
        
      swapbuffers();
 }
@@ -146,11 +148,11 @@ void Isteka(int *hiz)
      int x,y,u,gos;
      float uzaklik,sinu,cosu;
      
-     //-----OYUN-EKRANINI-ÇÝZME----//
+     //-----OYUN-EKRANINI-ï¿½ï¿½ZME----//
      cleardevice();
      OyunEkraniCiz();
       
-     //-----ÝSTEKANIN-HAREKETÝ-----//      
+     //-----ï¿½STEKANIN-HAREKETï¿½-----//      
      x=mousex();
      y=mousey();
      uzaklik=sqrt(pow(x-top[0].mx,2.0)+pow(y-top[0].my,2.0));
@@ -162,12 +164,12 @@ void Isteka(int *hiz)
      isteka.bitx=(isteka.basx)+180*cosu;
      isteka.bity=(isteka.basy)+180*sinu;
          
-     //------ÝSTEKANIN-ÇÝZÝMÝ------//
+     //------ï¿½STEKANIN-ï¿½ï¿½Zï¿½Mï¿½------//
      setcolor(BROWN);
      setlinestyle(0,0,8);
      line(isteka.basx,isteka.basy,isteka.bitx,isteka.bity);
       
-     //--HIZ-GÖSTERGESÝNÝN-HAREKETÝ--//
+     //--HIZ-Gï¿½STERGESï¿½Nï¿½N-HAREKETï¿½--//
      gos=*hiz-10;
      u=gos/2;
      bar(520,550,(u*25)+520,560);
@@ -178,7 +180,7 @@ void Isteka(int *hiz)
      
 void ToplarinHareketi(void)
 {
-     //-----TOPLARIN-ÝLK-HIZLARINI-ATAMA----//
+     //-----TOPLARIN-ï¿½LK-HIZLARINI-ATAMA----//
      top[0].xhiz=0; top[0].yhiz=0;
      top[1].xhiz=0; top[1].yhiz=0;
      top[2].xhiz=0; top[2].yhiz=0;
@@ -191,17 +193,17 @@ void ToplarinHareketi(void)
      int hiz=10;
      float uzaklik;
      
-     //--------ÝSTEKANIN-BEYAZ-TOPA-VURMASI----------//    
+     //--------ï¿½STEKANIN-BEYAZ-TOPA-VURMASI----------//    
      while(1)
      {
-      //-----HIZI-ARTIRMAK-ÝÇÝN-SOL-TUÞ-----//      
+      //-----HIZI-ARTIRMAK-ï¿½ï¿½ï¿½N-SOL-TUï¿½-----//      
       if(ismouseclick(WM_LBUTTONDOWN))
         {
          if(hiz==30) 
          break;           
          
          hiz++;
-       //---HIZI-DURDURMAK-ÝÇÝN-SAÐ-TUÞ---//
+       //---HIZI-DURDURMAK-ï¿½ï¿½ï¿½N-SAï¿½-TUï¿½---//
          if(ismouseclick(WM_RBUTTONDOWN))
          break;
         
@@ -213,7 +215,7 @@ void ToplarinHareketi(void)
        top[0].xhiz=-(((isteka.bitx-top[0].mx)/uzaklik)*hiz);
        top[0].yhiz=-(((isteka.bity-top[0].my)/uzaklik)*hiz);
         
-       //-----ÝSTEKA-VE-OYUN-EKRANINI-ÇÝZME------//
+       //-----ï¿½STEKA-VE-OYUN-EKRANINI-ï¿½ï¿½ZME------//
        OyunEkraniCiz();
        Isteka(&hiz);
       
@@ -223,11 +225,11 @@ void ToplarinHareketi(void)
        delay(70);
       }
      
-       //-----MOUSE-TIKLAMALARINI-TEMÝZLEME------//
+       //-----MOUSE-TIKLAMALARINI-TEMï¿½ZLEME------//
        clearmouseclick(WM_LBUTTONDOWN);
        clearmouseclick(WM_RBUTTONDOWN);
      
-     //-----------------TOPLARIN-HAREKETÝ----------------//
+     //-----------------TOPLARIN-HAREKETï¿½----------------//
      while(top[0].xhiz!=0||top[0].yhiz!=0||top[1].xhiz!=0||top[1].yhiz!=0||
            top[2].xhiz!=0||top[2].yhiz!=0||top[3].xhiz!=0||top[3].yhiz!=0||
            top[4].xhiz!=0||top[4].yhiz!=0||top[5].xhiz!=0||top[5].yhiz!=0||
@@ -241,7 +243,7 @@ void ToplarinHareketi(void)
                if(top[i].my<95||top[i].my>465) top[i].yhiz=-top[i].yhiz;
               }
            
-           //----MERKEZ-KOORDÝNATLARINA-HIZLARI-EKLEME---//
+           //----MERKEZ-KOORDï¿½NATLARINA-HIZLARI-EKLEME---//
            for(i=0;i<7;i++)
               {
                top[i].mx+=top[i].xhiz;
@@ -259,7 +261,7 @@ void ToplarinHareketi(void)
            }
            ++sayac%=10;
            
-           //-------TOPLARIN-ÇARPIÞMASINI-KONTROL--------//
+           //-------TOPLARIN-ï¿½ARPIï¿½MASINI-KONTROL--------//
            //--BEYAZ-TOPUN--//
            for(i=1;i<7;i++)
               {
@@ -294,8 +296,8 @@ void ToplarinHareketi(void)
            if(sqrt(pow(top[5].mx-top[6].mx,2.0)+pow(top[5].my-top[6].my,2.0))<30)
               Carpisma(&top[5],&top[6]);
               
-           //------TOPLARIN-DELÝGE-DÜÞMESÝNÝ-KONTROL-----//
-           //---1.DELÝÐE---//
+           //------TOPLARIN-DELï¿½GE-Dï¿½ï¿½MESï¿½Nï¿½-KONTROL-----//
+           //---1.DELï¿½ï¿½E---//
            if(sqrt(pow(60-top[0].mx,2.0)+pow(90-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -306,7 +308,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---2.DELÝÐE---//
+           //---2.DELï¿½ï¿½E---//
            if(sqrt(pow(400-top[0].mx,2.0)+pow(80-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -317,7 +319,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---3.DELÝÐE---//
+           //---3.DELï¿½ï¿½E---//
            if(sqrt(pow(740-top[0].mx,2.0)+pow(90-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -328,7 +330,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---4.DELÝÐE---//
+           //---4.DELï¿½ï¿½E---//
            if(sqrt(pow(60-top[0].mx,2.0)+pow(470-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -339,7 +341,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---5.DELÝÐE---//
+           //---5.DELï¿½ï¿½E---//
            if(sqrt(pow(400-top[0].mx,2.0)+pow(480-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -350,7 +352,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---6.DELÝÐE---//
+           //---6.DELï¿½ï¿½E---//
            if(sqrt(pow(740-top[0].mx,2.0)+pow(470-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -361,7 +363,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
            
-           //-----OYUN-EKRANINI-ÇÝZME-----//
+           //-----OYUN-EKRANINI-ï¿½ï¿½ZME-----//
            OyunEkraniCiz();
            
            setvisualpage(sayfano);
@@ -384,11 +386,11 @@ int main()
     top[6].mx=580; top[6].my=320;
     
     int x,y;
-    initwindow(800,600,"BÝLARDO");
+    initwindow(800,600,"Bï¿½LARDO");
     
-    //--------GÝRÝÞ-EKRANI-ÇÝZME--------//
+    //--------Gï¿½Rï¿½ï¿½-EKRANI-ï¿½ï¿½ZME--------//
     GirisEkraniCiz();
-    //----GÝRÝÞ-EKRANINDAKÝ-SEKMELER----//
+    //----Gï¿½Rï¿½ï¿½-EKRANINDAKï¿½-SEKMELER----//
     while(1)
     {
        while (!ismouseclick(WM_LBUTTONDOWN));						
@@ -401,18 +403,18 @@ int main()
           setbkcolor(BLACK);
           setcolor(CYAN);
           settextstyle(6,0,2);
-          outtextxy(110,40,"-TALÝMATLAR-");
-          outtextxy(30,80,"1)Ýstekanýn hareketi Mouse'nin hareketi ile saðlanmaktadýr.");
-          outtextxy(30,120,"2)Hýz, Mouse'nin SAÐ ve SOL tuþlarý ile deðiþmektedir.");
-          outtextxy(30,160,"3)SOL tuþa týklandýðýnda hýzýn deðeri, SAÐ tuþa");
-          outtextxy(60,190,"týklanana kadar artmaya baþlar.");
-          outtextxy(30,230,"4)SAÐ tuþa týkladýðýnda hýz artmayý durdurur ve top bu");
-          outtextxy(60,260,"hýzla harekete baþlar.");
-          outtextxy(30,300,"5)Eðer SAÐ tuþa týklanmazsa hýz otomatik olarak ");
-          outtextxy(60,330,"maksimum hýza ulaþýr ve top bu hýzla harekete baþlar.");
-          outtextxy(30,370,"5)Toplar deliðe girdiðinde sol alttaki kutuda sýralanýr.");
-          outtextxy(30,410,"6)Tüm toplar deliðe girdiðinde oyun kazanýlýr.");
-          outtextxy(450,500,"OYUNA BAÞLA>>>");
+          outtextxy(110,40,"-TALï¿½MATLAR-");
+          outtextxy(30,80,"1)ï¿½stekanï¿½n hareketi Mouse'nin hareketi ile saï¿½lanmaktadï¿½r.");
+          outtextxy(30,120,"2)Hï¿½z, Mouse'nin SAï¿½ ve SOL tuï¿½larï¿½ ile deï¿½iï¿½mektedir.");
+          outtextxy(30,160,"3)SOL tuï¿½a tï¿½klandï¿½ï¿½ï¿½nda hï¿½zï¿½n deï¿½eri, SAï¿½ tuï¿½a");
+          outtextxy(60,190,"tï¿½klanana kadar artmaya baï¿½lar.");
+          outtextxy(30,230,"4)SAï¿½ tuï¿½a tï¿½kladï¿½ï¿½ï¿½nda hï¿½z artmayï¿½ durdurur ve top bu");
+          outtextxy(60,260,"hï¿½zla harekete baï¿½lar.");
+          outtextxy(30,300,"5)Eï¿½er SAï¿½ tuï¿½a tï¿½klanmazsa hï¿½z otomatik olarak ");
+          outtextxy(60,330,"maksimum hï¿½za ulaï¿½ï¿½r ve top bu hï¿½zla harekete baï¿½lar.");
+          outtextxy(30,370,"5)Toplar deliï¿½e girdiï¿½inde sol alttaki kutuda sï¿½ralanï¿½r.");
+          outtextxy(30,410,"6)Tï¿½m toplar deliï¿½e girdiï¿½inde oyun kazanï¿½lï¿½r.");
+          outtextxy(450,500,"OYUNA BAï¿½LA>>>");
        }
        if((x>450&&x<720)&&(y>500&&y<520)) break;       
     }   
@@ -420,14 +422,14 @@ int main()
     //---------OYUN-DONGUSU-------------//
     while(1)
     {       
-       //------OYUN-EKRANINI-ÇÝZME-----//
+       //------OYUN-EKRANINI-ï¿½ï¿½ZME-----//
        OyunEkraniCiz();
-       //----TOPLARIN-HAREKET-ETMESÝ---//
+       //----TOPLARIN-HAREKET-ETMESï¿½---//
        ToplarinHareketi();
-       //--GÝREN-TOP-SAYISINI-KONTROL--//
+       //--Gï¿½REN-TOP-SAYISINI-KONTROL--//
        if(GirenTop==6)
           break;
-       //-----ÇIKIÞ-TUÞUNU-KONTROL-----//
+       //-----ï¿½IKIï¿½-TUï¿½UNU-KONTROL-----//
        if(!ismouseclick(WM_LBUTTONDOWN));
           {getmouseclick(WM_LBUTTONDOWN,x,y);
            if((x>670&&x<770)&&(y>10&&y<40))
@@ -436,13 +438,13 @@ int main()
        delay(10);
     }
     
-    //---------SON-EKRANI-ÇÝZME--------//    
+    //---------SON-EKRANI-ï¿½ï¿½ZME--------//    
     cleardevice();
     setbkcolor(BLACK);
     setcolor(RED);
     
     settextstyle(6,0,7);
-    outtextxy(140,180,"TEBRÝKLER");
+    outtextxy(140,180,"TEBRï¿½KLER");
     outtextxy(100,280,"KAZANDINIZ:)");
  
     getch();
