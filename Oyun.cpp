@@ -1,10 +1,3 @@
-/////////////////////////////////////
-//  Haz�rlayanlar   BURAK �ZT�RK   //
-//                  RAMAZAN KURT   //
-/////////////////////////////////////
-
-//Test ediliyor//
-
 #include <stdio.h>
 #include <graphics.h>
 #include <math.h>
@@ -31,16 +24,16 @@ void GirisEkraniCiz(void)
      setcolor(CYAN);
      
      settextstyle(6,0,7);
-     outtextxy(190,120,"B�LARDO");
+     outtextxy(190,120,"BİLARDO");
      
      setlinestyle(0,0,2);
      rectangle(180,120,600,180);
      
-     //----G�R��-EKRANINDAK�-SEKMELER----//
+     //----GİRİŞ-EKRANINDAKİ-SEKMELER----//
      settextstyle(6,0,3);
-     outtextxy(235,270,">>OYUNA BA�LA<<");
-     outtextxy(245,310,">>TAL�MATLAR<<");
-     outtextxy(225,350,">>OYUNDAN �IK!!!<<");
+     outtextxy(235,270,">>OYUNA BAŞLA<<");
+     outtextxy(245,310,">>TALİMATLAR<<");
+     outtextxy(225,350,">>OYUNDAN ÇIK!!!<<");
 }
 
 void OyunEkraniCiz(void)
@@ -60,7 +53,7 @@ void OyunEkraniCiz(void)
      rectangle(50,80,750,480);
      floodfill(100,200,GREEN);
      
-     //---------DEL�KLER---------//        
+     //---------DELİKLER---------//        
      setcolor(BLACK);
      setfillstyle(SOLID_FILL,BLACK);
      circle(60,90,20);
@@ -97,7 +90,7 @@ void OyunEkraniCiz(void)
      circle(top[6].mx,top[6].my,15);
      fillellipse(top[6].mx,top[6].my,15,15);
     
-     //---------G�STERGELER---------//
+     //---------GÖSTERGELER---------//
      setbkcolor(BLACK);
      setcolor(RED);
      setlinestyle(0,0,4);
@@ -107,7 +100,7 @@ void OyunEkraniCiz(void)
      rectangle(515,545,775,565);
     
      settextstyle(6,0,4);
-     outtextxy(120,15,"B�LARDO");
+     outtextxy(120,15,"BİLARDO");
      
      settextstyle(6,0,2);
      outtextxy(425,545,"HIZ=>");
@@ -117,7 +110,7 @@ void OyunEkraniCiz(void)
      setbkcolor(RED);
      setcolor(BLACK);
      settextstyle(6,0,3);
-     outtextxy(678,15,"�IKI�");
+     outtextxy(678,15,"ÇIKIŞ");
        
      swapbuffers();
 }
@@ -148,11 +141,11 @@ void Isteka(int *hiz)
      int x,y,u,gos;
      float uzaklik,sinu,cosu;
      
-     //-----OYUN-EKRANINI-��ZME----//
+     //-----OYUN-EKRANINI-ÇİZME----//
      cleardevice();
      OyunEkraniCiz();
       
-     //-----�STEKANIN-HAREKET�-----//      
+     //-----ISTEKANIN-HAREKETİ-----//      
      x=mousex();
      y=mousey();
      uzaklik=sqrt(pow(x-top[0].mx,2.0)+pow(y-top[0].my,2.0));
@@ -164,12 +157,12 @@ void Isteka(int *hiz)
      isteka.bitx=(isteka.basx)+180*cosu;
      isteka.bity=(isteka.basy)+180*sinu;
          
-     //------�STEKANIN-��Z�M�------//
+     //------ISTEKANIN-ÇİZİMİ------//
      setcolor(BROWN);
      setlinestyle(0,0,8);
      line(isteka.basx,isteka.basy,isteka.bitx,isteka.bity);
       
-     //--HIZ-G�STERGES�N�N-HAREKET�--//
+     //--HIZ-GÖSTERGESİNİN-HAREKETİ--//
      gos=*hiz-10;
      u=gos/2;
      bar(520,550,(u*25)+520,560);
@@ -180,7 +173,7 @@ void Isteka(int *hiz)
      
 void ToplarinHareketi(void)
 {
-     //-----TOPLARIN-�LK-HIZLARINI-ATAMA----//
+     //-----TOPLARIN-İLK-HIZLARINI-ATAMA----//
      top[0].xhiz=0; top[0].yhiz=0;
      top[1].xhiz=0; top[1].yhiz=0;
      top[2].xhiz=0; top[2].yhiz=0;
@@ -193,17 +186,17 @@ void ToplarinHareketi(void)
      int hiz=10;
      float uzaklik;
      
-     //--------�STEKANIN-BEYAZ-TOPA-VURMASI----------//    
+     //--------ISTEKANIN-BEYAZ-TOPA-VURMASI----------//    
      while(1)
      {
-      //-----HIZI-ARTIRMAK-���N-SOL-TU�-----//      
+      //-----HIZI-ARTIRMAK-İÇİN-SOL-TUŞ-----//      
       if(ismouseclick(WM_LBUTTONDOWN))
         {
          if(hiz==30) 
          break;           
          
          hiz++;
-       //---HIZI-DURDURMAK-���N-SA�-TU�---//
+       //---HIZI-DURDURMAK-İÇİN-SAĞ-TUŞ---//
          if(ismouseclick(WM_RBUTTONDOWN))
          break;
         
@@ -215,7 +208,7 @@ void ToplarinHareketi(void)
        top[0].xhiz=-(((isteka.bitx-top[0].mx)/uzaklik)*hiz);
        top[0].yhiz=-(((isteka.bity-top[0].my)/uzaklik)*hiz);
         
-       //-----�STEKA-VE-OYUN-EKRANINI-��ZME------//
+       //-----ISTEKA-VE-OYUN-EKRANINI-ÇİZME------//
        OyunEkraniCiz();
        Isteka(&hiz);
       
@@ -225,11 +218,11 @@ void ToplarinHareketi(void)
        delay(70);
       }
      
-       //-----MOUSE-TIKLAMALARINI-TEM�ZLEME------//
+       //-----MOUSE-TIKLAMALARINI-TEMİZLEME------//
        clearmouseclick(WM_LBUTTONDOWN);
        clearmouseclick(WM_RBUTTONDOWN);
      
-     //-----------------TOPLARIN-HAREKET�----------------//
+     //-----------------TOPLARIN-HAREKETİ----------------//
      while(top[0].xhiz!=0||top[0].yhiz!=0||top[1].xhiz!=0||top[1].yhiz!=0||
            top[2].xhiz!=0||top[2].yhiz!=0||top[3].xhiz!=0||top[3].yhiz!=0||
            top[4].xhiz!=0||top[4].yhiz!=0||top[5].xhiz!=0||top[5].yhiz!=0||
@@ -243,7 +236,7 @@ void ToplarinHareketi(void)
                if(top[i].my<95||top[i].my>465) top[i].yhiz=-top[i].yhiz;
               }
            
-           //----MERKEZ-KOORD�NATLARINA-HIZLARI-EKLEME---//
+           //----MERKEZ-KOORDİNATLARINA-HIZLARI-EKLEME---//
            for(i=0;i<7;i++)
               {
                top[i].mx+=top[i].xhiz;
@@ -261,7 +254,7 @@ void ToplarinHareketi(void)
            }
            ++sayac%=10;
            
-           //-------TOPLARIN-�ARPI�MASINI-KONTROL--------//
+           //-------TOPLARIN-ÇARPIŞMASINI-KONTROL--------//
            //--BEYAZ-TOPUN--//
            for(i=1;i<7;i++)
               {
@@ -296,8 +289,8 @@ void ToplarinHareketi(void)
            if(sqrt(pow(top[5].mx-top[6].mx,2.0)+pow(top[5].my-top[6].my,2.0))<30)
               Carpisma(&top[5],&top[6]);
               
-           //------TOPLARIN-DEL�GE-D��MES�N�-KONTROL-----//
-           //---1.DEL��E---//
+           //------TOPLARIN-DELİĞE-DÜŞMESİNİ-KONTROL-----//
+           //---1.DELİĞE---//
            if(sqrt(pow(60-top[0].mx,2.0)+pow(90-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -308,7 +301,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---2.DEL��E---//
+           //---2.DELİĞE---//
            if(sqrt(pow(400-top[0].mx,2.0)+pow(80-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -319,7 +312,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---3.DEL��E---//
+           //---3.DELİĞE---//
            if(sqrt(pow(740-top[0].mx,2.0)+pow(90-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -330,7 +323,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---4.DEL��E---//
+           //---4.DELİĞE---//
            if(sqrt(pow(60-top[0].mx,2.0)+pow(470-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -341,7 +334,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---5.DEL��E---//
+           //---5.DELİĞE---//
            if(sqrt(pow(400-top[0].mx,2.0)+pow(480-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -352,7 +345,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
               
-           //---6.DEL��E---//
+           //---6.DELİĞE---//
            if(sqrt(pow(740-top[0].mx,2.0)+pow(470-top[0].my,2.0))<15)  
                  {top[0].mx=170; top[0].my=280; top[0].xhiz=0; top[0].yhiz=0;}
            for(i=1;i<7;i++)
@@ -363,7 +356,7 @@ void ToplarinHareketi(void)
                   GirenTop++;}
               }
            
-           //-----OYUN-EKRANINI-��ZME-----//
+           //-----OYUN-EKRANINI-ÇİZME-----//
            OyunEkraniCiz();
            
            setvisualpage(sayfano);
@@ -386,7 +379,7 @@ int main()
     top[6].mx=580; top[6].my=320;
     
     int x,y;
-    initwindow(800,600,"B�LARDO");
+    initwindow(800,600,"BİLARDO");
     
     //--------G�R��-EKRANI-��ZME--------//
     GirisEkraniCiz();
@@ -403,18 +396,18 @@ int main()
           setbkcolor(BLACK);
           setcolor(CYAN);
           settextstyle(6,0,2);
-          outtextxy(110,40,"-TAL�MATLAR-");
-          outtextxy(30,80,"1)�stekan�n hareketi Mouse'nin hareketi ile sa�lanmaktad�r.");
-          outtextxy(30,120,"2)H�z, Mouse'nin SA� ve SOL tu�lar� ile de�i�mektedir.");
-          outtextxy(30,160,"3)SOL tu�a t�kland���nda h�z�n de�eri, SA� tu�a");
-          outtextxy(60,190,"t�klanana kadar artmaya ba�lar.");
-          outtextxy(30,230,"4)SA� tu�a t�klad���nda h�z artmay� durdurur ve top bu");
-          outtextxy(60,260,"h�zla harekete ba�lar.");
-          outtextxy(30,300,"5)E�er SA� tu�a t�klanmazsa h�z otomatik olarak ");
-          outtextxy(60,330,"maksimum h�za ula��r ve top bu h�zla harekete ba�lar.");
-          outtextxy(30,370,"5)Toplar deli�e girdi�inde sol alttaki kutuda s�ralan�r.");
-          outtextxy(30,410,"6)T�m toplar deli�e girdi�inde oyun kazan�l�r.");
-          outtextxy(450,500,"OYUNA BA�LA>>>");
+          outtextxy(110,40,"-TALİMATLAR-");
+          outtextxy(30,80,"1)Istekanın hareketi Mouse'nin hareketi ile sağlanmaktad�r.");
+          outtextxy(30,120,"2)Hız, Mouse'nin SAĞ ve SOL tuşlar ile değişmektedir.");
+          outtextxy(30,160,"3)SOL tuşa tıklandığında hızın değeri, SAĞ tuşa");
+          outtextxy(60,190,"tıklanana kadar artmaya başlar.");
+          outtextxy(30,230,"4)SAĞ tuşa tıkladığında hız artmayı durdurur ve top bu");
+          outtextxy(60,260,"hızla harekete başlar.");
+          outtextxy(30,300,"5)Eğer SAĞ tuşa tıklanmazsa hız otomatik olarak ");
+          outtextxy(60,330,"maksimum hıza ulaşır ve top bu hızla harekete başlar.");
+          outtextxy(30,370,"5)Toplar deliğe girdiğinde sol alttaki kutuda sıralanır.");
+          outtextxy(30,410,"6)Tüm toplar deliğe girdiğinde oyun kazanılır.");
+          outtextxy(450,500,"OYUNA BAŞLA>>>");
        }
        if((x>450&&x<720)&&(y>500&&y<520)) break;       
     }   
@@ -422,14 +415,14 @@ int main()
     //---------OYUN-DONGUSU-------------//
     while(1)
     {       
-       //------OYUN-EKRANINI-��ZME-----//
+       //------OYUN-EKRANINI-ÇİZME-----//
        OyunEkraniCiz();
-       //----TOPLARIN-HAREKET-ETMES�---//
+       //----TOPLARIN-HAREKET-ETMESİ---//
        ToplarinHareketi();
-       //--G�REN-TOP-SAYISINI-KONTROL--//
+       //--GİREN-TOP-SAYISINI-KONTROL--//
        if(GirenTop==6)
           break;
-       //-----�IKI�-TU�UNU-KONTROL-----//
+       //-----ÇIKIŞ-TUŞUNU-KONTROL-----//
        if(!ismouseclick(WM_LBUTTONDOWN));
           {getmouseclick(WM_LBUTTONDOWN,x,y);
            if((x>670&&x<770)&&(y>10&&y<40))
@@ -438,7 +431,7 @@ int main()
        delay(10);
     }
     
-    //---------SON-EKRANI-��ZME--------//    
+    //---------SON-EKRANI-ÇİZME--------//    
     cleardevice();
     setbkcolor(BLACK);
     setcolor(RED);
